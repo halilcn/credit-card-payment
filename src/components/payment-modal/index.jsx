@@ -9,17 +9,25 @@ const PaymentModal = () => {
     dispatch(cardActions.toggleCardFace());
   };
 
+  const onChangeHandle = (e, cardInfoName) => dispatch(cardActions.updateCardInformation({ [cardInfoName]: e.target.value }));
+
   return (
     <div className="payment__modal">
       <div className="payment__info-container">
-        <PaymentInfo title="Name" type="text" />
+        <PaymentInfo title="Card Holder" type="text" onChange={e => onChangeHandle(e, 'name')} />
       </div>
       <div className="payment__info-container">
-        <PaymentInfo />
+        <PaymentInfo title="Card Number" type="text" onChange={e => onChangeHandle(e, 'number')} />
       </div>
       <div className="payment__info-container payment__info-container--row">
-        <PaymentInfo />
-        <PaymentInfo title="Cvv" onFocus={toggleCreditCardFace} onBlur={toggleCreditCardFace} />
+        <PaymentInfo title="Expiration Date" type="text" onChange={e => onChangeHandle(e, 'expireDate')} />
+        <PaymentInfo
+          title="CVV"
+          type="number"
+          onChange={e => onChangeHandle(e, 'cvv')}
+          onFocus={toggleCreditCardFace}
+          onBlur={toggleCreditCardFace}
+        />
       </div>
       <div className="payment__submit">Submit</div>
     </div>

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const CreditCard = () => {
   const isSelectedBackOfCard = useSelector(state => state.card.isSelectedBackOfCard);
+  const { number, name, expireDate, cvv } = useSelector(state => state.card);
 
   return (
     <div className={`credit-card ${isSelectedBackOfCard && 'credit-card__toggle-face'}`}>
@@ -13,10 +14,10 @@ const CreditCard = () => {
         <div className="credit-card__filter" />
         <div className="credit-card__info-container">
           <img src={VisaImage} className="credit-card__visa-icon" />
-          <div className="credit-card__info credit-card__info--number">4132 1456 1234 1246</div>
+          <div className="credit-card__info credit-card__info--number">{number}</div>
           <div className="credit-card__other-info">
-            <div className="credit-card__info credit-card__info--name">Halil Can</div>
-            <div className="credit-card__info credit-card__info--expire-date">12/2323</div>
+            <div className="credit-card__info credit-card__info--name">{name}</div>
+            <div className="credit-card__info credit-card__info--expire-date">{expireDate}</div>
           </div>
         </div>
       </div>
@@ -25,7 +26,7 @@ const CreditCard = () => {
         <div className="credit-card__filter" />
         <div className="credit-card__info-container">
           <div className="credit-card__black-line" />
-          <div className="credit-card__info credit-card__cvv">121</div>
+          <div className="credit-card__info credit-card__cvv">{cvv}</div>
         </div>
       </div>
     </div>

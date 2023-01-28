@@ -13,8 +13,8 @@ export const cardSlice = createSlice({
         toggleCardFace: state => {
             state.isSelectedBackOfCard = !state.isSelectedBackOfCard
         },
-        setCardInformation: (state, action) => {
-
+        updateCardInformation: (state, action) => {
+            return { ...state, ...action.payload }
         }
     },
 })
