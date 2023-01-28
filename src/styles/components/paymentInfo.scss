@@ -20,6 +20,10 @@
             &:focus {
                 border-color: #9b9b9b;
             }
+
+            &--has-error {
+                border-color: rgb(255, 207, 207) !important;
+            }
         }
     }
 }
