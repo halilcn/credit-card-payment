@@ -19,6 +19,7 @@ const Payment = () => {
             <PaymentInfo />
             <PaymentInfo />
           </div>
+          <div className="payment__submit">Submit</div>
         </div>
       </div>
     </div>
