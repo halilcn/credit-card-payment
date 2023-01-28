@@ -9,6 +9,7 @@
         display: flex;
         width: 480px;
         height: 270px;
+        position: relative;
     }
 
     &__bg-img {
@@ -52,10 +53,30 @@
         }
     }
 
+    &__cvv {
+        width: 100%;
+        background-color: white;
+        text-align: right;
+        color: black;
+        border-radius: 10px;
+        padding: 8px;
+        margin: auto;
+    }
+
     &__other-info {
         width: 100%;
         display: flex;
         justify-content: space-between;
         margin-top: auto;
+    }
+
+    &__black-line {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 30px;
+        height: 50px;
+        background-color: black;
+        opacity: 0.9;
     }
 }
