@@ -6,9 +6,16 @@ export const cardSlice = createSlice({
         number: '',
         name: '',
         expireDate: '',
-        cvv: ''
+        cvv: '',
+        isSelectedBackOfCard: false
     },
     reducers: {
+        toggleCardFace: state => {
+            state.isSelectedBackOfCard = !state.isSelectedBackOfCard
+        },
+        setCardInformation: (state, action) => {
+
+        }
     },
 })
 
