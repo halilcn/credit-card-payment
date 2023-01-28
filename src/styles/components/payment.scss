@@ -50,9 +50,15 @@
         margin-top: 50px;
         padding: 15px;
         text-align: center;
-        background-color: #1a112b;
+        background-color: #313032;
         color: white;
         border-radius: 10px;
         cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            background-color: #3e3d3f;
+            transform: translateY(-1px);
+        }
     }
 }
