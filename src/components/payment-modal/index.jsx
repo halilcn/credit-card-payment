@@ -16,9 +16,7 @@ const PaymentModal = () => {
   const dispatch = useDispatch();
   const card = useSelector(state => state.card);
 
-  const toggleCreditCardFace = () => {
-    dispatch(cardActions.toggleCardFace());
-  };
+  const toggleCreditCardFace = () => dispatch(cardActions.toggleCardFace());
 
   const handleSetFieldsForError = field => {
     if (!fieldsForError.includes(field)) setFieldsForError([...fieldsForError, field]);
@@ -26,13 +24,13 @@ const PaymentModal = () => {
 
   const handleDeleteFieldsForError = field => setFieldsForError([...fieldsForError.filter(f => f !== field)]);
 
-  const onChangeHandle = (e, cardInfoName) => dispatch(cardActions.updateCardInformation({ [cardInfoName]: e.target.value }));
+  const onChangeHandle = (e, field) => dispatch(cardActions.updateCardInformation({ [field]: e.target.value }));
 
   const handleCheckErrorWhenOnBlur = field => {
     const value = card[field];
 
     if (value === '') {
-      handleSetFieldsForError(CARD_FIELDS.NAME);
+      handleSetFieldsForError(field);
       return;
     }
 
@@ -67,10 +65,10 @@ const PaymentModal = () => {
     handleCheckErrorWhenOnBlur(CARD_FIELDS.CVV);
   };
 
-  const paymentInputParams = fieldName => ({
-    hasError: handleHasError(fieldName),
-    onBlur: () => handleCheckErrorWhenOnBlur(fieldName),
-    onChange: e => onChangeHandle(e, fieldName)
+  const paymentInputParams = field => ({
+    hasError: handleHasError(field),
+    onBlur: () => handleCheckErrorWhenOnBlur(field),
+    onChange: e => onChangeHandle(e, field)
   });
 
   return (
@@ -85,7 +83,7 @@ const PaymentModal = () => {
         <PaymentInfo title="Expiration Date" type="text" {...paymentInputParams(CARD_FIELDS.EXPIRE_DATE)} />
         <PaymentInfo
           title="CVV"
-          type="number"
+          type="text"
           onFocus={toggleCreditCardFace}
           {...paymentInputParams(CARD_FIELDS.CVV)}
           onBlur={handleOnBlurForCvv}
