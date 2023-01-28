@@ -77,13 +77,14 @@ const PaymentModal = () => {
         <PaymentInfo title="Card Holder" type="text" {...paymentInputParams(CARD_FIELDS.NAME)} />
       </div>
       <div className="payment__info-container">
-        <PaymentInfo title="Card Number" type="text" {...paymentInputParams(CARD_FIELDS.NUMBER)} />
+        <PaymentInfo title="Card Number" type="tel" maxlength="16" {...paymentInputParams(CARD_FIELDS.NUMBER)} />
       </div>
       <div className="payment__info-container payment__info-container--row">
         <PaymentInfo title="Expiration Date" type="text" {...paymentInputParams(CARD_FIELDS.EXPIRE_DATE)} />
         <PaymentInfo
           title="CVV"
-          type="text"
+          type="tel"
+          maxlength="3"
           onFocus={toggleCreditCardFace}
           {...paymentInputParams(CARD_FIELDS.CVV)}
           onBlur={handleOnBlurForCvv}
