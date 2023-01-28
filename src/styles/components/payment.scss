@@ -8,6 +8,7 @@
     &__container {
         width: 600px;
         height: 400px;
+        position: relative;
     }
 
     &__modal {
@@ -28,6 +29,10 @@
             & > div {
                 width: 45%;
             }
+        }
+
+        &:first-child {
+            margin-top: 90px;
         }
     }
 

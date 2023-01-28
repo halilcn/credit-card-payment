@@ -1,0 +1,61 @@
+.credit-card {
+    position: absolute;
+    top: -180px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &__face {
+        display: flex;
+        width: 480px;
+        height: 270px;
+    }
+
+    &__bg-img {
+        position: absolute;
+        width: 480px;
+        height: 270px;
+        object-fit: cover;
+        border-radius: 10px;
+        z-index: 0;
+    }
+
+    &__filter {
+        position: absolute;
+        background-color: white;
+        opacity: 0.1;
+        width: 480px;
+        height: 270px;
+    }
+
+    &__info-container {
+        width: 100%;
+        color: white;
+        z-index: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__visa-icon {
+        width: 60px;
+        height: 60px;
+        margin-left: auto;
+    }
+
+    &__info {
+        font-size: 20px;
+        font-weight: 600;
+
+        &--number {
+            margin: auto 0;
+        }
+    }
+
+    &__other-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+    }
+}

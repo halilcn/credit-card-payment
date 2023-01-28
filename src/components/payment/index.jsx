@@ -1,5 +1,5 @@
-import CreditCard from './CreditCard';
 import PaymentInfo from '../common/payment-info/PaymentInfo';
+import CreditCard from '../payment/CreditCard';
 
 import './../../styles/components/payment.scss';
 
